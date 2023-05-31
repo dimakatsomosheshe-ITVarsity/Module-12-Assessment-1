@@ -16,20 +16,20 @@
             document.getElementById("refresh").addEventListener('click', fetchContacts);
             document.getElementById("addContact").addEventListener('click', addContact);
 
-            function fetchContacts() {
+            function fetchContacts(){
                 fetch(rootPath + "controller/get-contacts/")
-                    .then(function(response) {
+                    .then(function(response){
                         return response.json();
                     })
-                    .then(function(data) {
+                    .then(function(data){
                         displayOutput(data);
                     })
             }
 
-            function displayOutput(data) {
+            function displayOutput(data){
                 output = "<table>";
 
-                for (a in data) {
+                for (a in data){
                     output += `
                             <tr onclick="editContact(${data[a].id})">
                                 <td><img src="${rootPath}controller/uploads/${data[a].avatar}" width="50"/></td>
@@ -42,11 +42,11 @@
                 document.getElementById("table").innerHTML = output;
             }
 
-            function addContact() {
+            function addContact(){
                 window.open("add-contact.html", "_self");
             }
 
-            function editContact(id) {
+            function editContact(id){
                 window.open("edit-contact.html?id=" + id, "_self");
             }
         </script>
